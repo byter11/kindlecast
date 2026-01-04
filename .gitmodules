@@ -1,0 +1,9 @@
+[submodule "calibre_chaquopy/calibre"]
+	path = calibre_chaquopy/calibre
+	url = https://github.com/kovidgoyal/calibre
+[submodule "calibre_chaquopy/icu4c"]
+	path = calibre_chaquopy/icu4c
+	url = https://github.com/florisboard/icu4c
+[submodule "calibre_chaquopy/html5-parser"]
+	path = calibre_chaquopy/html5-parser
+	url = https://github.com/kovidgoyal/html5-parser

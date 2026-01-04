@@ -1,0 +1,8 @@
+calibre
+calibre_extensions
+css_selectors
+odf
+polyglot
+qt
+templite
+tinycss

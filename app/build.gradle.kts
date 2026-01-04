@@ -1,0 +1,106 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.chaquopy.python)
+    alias(libs.plugins.compose.compiler)
+}
+
+android {
+    namespace = "io.github.byter11.kindlecast"
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = "io.github.byter11.kindlecast"
+        minSdk = 31
+        targetSdk = 36
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters += listOf("arm64-v8a")
+        }
+        packaging {
+            jniLibs {
+                // This stops Android from trying to map the .so directly from the APK
+                // It forces an extraction to the filesystem, which avoids the alignment requirement
+                useLegacyPackaging = true
+            }
+        }
+    }
+
+
+    chaquopy {
+
+        defaultConfig {
+
+            version = "3.13"
+            pip {
+
+                install("lxml")
+                install("regex")
+                install("pillow")
+
+                install("msgpack")
+
+                install("html5_parser-0.4.12-cp313-cp313-android_21_arm64_v8a.whl")
+                install("calibre-1.0-cp313-cp313-android_24_arm64_v8a.whl")
+            }
+            pyc {
+                src = false
+            }
+            extractPackages("calibre", "calibre_extensions", "html5_parser")
+        }
+    }
+
+
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+
+    }
+}
+
+dependencies {
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.nanohttpd)
+    implementation(libs.material3)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+}
