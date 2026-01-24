@@ -3,6 +3,7 @@ package io.github.byter11.kindlecast
 import android.app.Application
 import android.content.Context
 import android.net.Uri
+import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.chaquo.python.PyObject
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.util.UUID
 
 
 sealed class ConversionStatus {
@@ -76,8 +78,9 @@ class Converter(application: Application) : AndroidViewModel(application) {
 
     fun convertUriToAzw3(context: Context, uri: Uri) {
         viewModelScope.launch {
+            val filename = DocumentFile.fromSingleUri(context, uri)?.name ?: "ebook_${UUID.randomUUID().toString().substring(0,15)}.epub"
             _status.value = ConversionStatus.Loading
-            _logs.value = "Starting conversion...\n"
+            _logs.value = "Starting conversion for $filename...\n"
 
             withContext(Dispatchers.IO) {
                 try {
@@ -91,11 +94,11 @@ class Converter(application: Application) : AndroidViewModel(application) {
 
                     // File IO Logic
                     val cacheDir = context.cacheDir
-                    val epubFile = File(cacheDir, "input.epub")
+                    val epubFile = File(cacheDir, filename)
                     context.contentResolver.openInputStream(uri)
                         ?.use { it.copyTo(epubFile.outputStream()) }
 
-                    val azw3File = File(cacheDir, "output.azw3")
+                    val azw3File = File(cacheDir, "${epubFile.nameWithoutExtension.take(128)}.azw3")
 
                     // Call Python
                     val container = py.getModule("calibre.ebooks.oeb.polish.container")

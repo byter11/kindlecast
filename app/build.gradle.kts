@@ -42,7 +42,7 @@ android {
                 install("msgpack")
                 install("css-parser")
                 install("mechanize")
-                install("calibre_chaquopy-1.0.0-cp313-cp313-android_21_arm64_v8a.whl")
+                install("https://github.com/byter11/calibre-chaquopy/releases/download/1.0.0/calibre_chaquopy-1.0.0-cp313-cp313-android_21_arm64_v8a.whl")
             }
             pyc {
                 src = false
@@ -91,6 +91,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.nanohttpd)
     implementation(libs.material3)
+    implementation(libs.androidx.documentfile)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
