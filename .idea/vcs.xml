@@ -2,11 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/calibre" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/calibre_extensions/icu4c" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/python" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/python/calibre/icu4c" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/python/html5-parser" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/python/html5-parser-real" vcs="Git" />
   </component>
 </project>

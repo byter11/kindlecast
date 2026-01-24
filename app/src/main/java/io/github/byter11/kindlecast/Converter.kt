@@ -66,8 +66,12 @@ class Converter(application: Application) : AndroidViewModel(application) {
 
     init {
         if (!Python.isStarted()) {
-            Python.start(AndroidPlatform(getApplication()))
+            var platform = AndroidPlatform(getApplication())
+            platform.redirectStdioToLogcat()
+            Python.start(platform)
         }
+
+        Python.getInstance().getModule("main").callAttr("setup")
     }
 
     fun convertUriToAzw3(context: Context, uri: Uri) {
@@ -100,6 +104,7 @@ class Converter(application: Application) : AndroidViewModel(application) {
                     _status.value = ConversionStatus.Success(azw3File)
                     _logs.update { it + "Conversion successful" }
                 } catch (e: Exception) {
+                    e.printStackTrace()
                     _logs.value += e.localizedMessage
                     _status.value =
                         ConversionStatus.Error(e.localizedMessage ?: "Conversion failed")

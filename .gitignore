@@ -14,7 +14,7 @@
 wheelhouse/
 __pycache__/
 *.so
-*.egg-info//captures
+*.egg-info/
 .externalNativeBuild
 .cxx
 local.properties

@@ -30,31 +30,27 @@ android {
         }
     }
 
-
     chaquopy {
 
         defaultConfig {
 
             version = "3.13"
             pip {
-
                 install("lxml")
                 install("regex")
                 install("pillow")
-
                 install("msgpack")
-
-                install("html5_parser-0.4.12-cp313-cp313-android_21_arm64_v8a.whl")
-                install("calibre-1.0-cp313-cp313-android_24_arm64_v8a.whl")
+                install("css-parser")
+                install("mechanize")
+                install("calibre_chaquopy-1.0.0-cp313-cp313-android_21_arm64_v8a.whl")
             }
             pyc {
                 src = false
+                pip = false
             }
-            extractPackages("calibre", "calibre_extensions", "html5_parser")
+            extractPackages("calibre", "calibre_extensions", "html5_parser", "resources")
         }
     }
-
-
 
     buildTypes {
         release {
