@@ -22,15 +22,14 @@
 - Convert and host ebooks in a single tap.
 - Supports sharing epubs directly to the app.
 - Save or share the converted .azw3 ebook, or download using the Kindle web browser.
-- Material You theming/
+- Material You theming
 
 
 ## Screenshots
 
 |                        |                        |                        |
 |------------------------|------------------------|------------------------|
-| ![](fastlane/metadata/android/en-US/images/phoneScreenshots/config.png) | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/dark.png) | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/reader.png)
-| ![](fastlane/metadata/android/en-US/images/phoneScreenshots/light.png)  | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/images.png) | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/webview.png)
+| ![](fastlane/metadata/android/en-US/images/phoneScreenshots/light.png) | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/dark.png) | ![](fastlane/metadata/android/en-US/images/phoneScreenshots/share.png)
 
 ## Getting Started
 
@@ -70,8 +69,4 @@ Uses Calibre under the hood: https://calibre-ebook.com/
 This project is licensed under the [Apache License 2.0](LICENSE).
 
 ## Acknowledgements
-
-- [Rome](https://rometools.github.io/rome/)
-- [PrettyTime](https://www.ocpsoft.org/prettytime/)
-- AndroidX, Material Components
-- [Readability.js](https://github.com/mozilla/readability)
+[Calibre](https://calibre-ebook.com)
