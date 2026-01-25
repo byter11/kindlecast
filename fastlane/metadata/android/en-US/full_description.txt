@@ -1,0 +1,12 @@
+<b>KindleCast</b> converts ebooks (.epub) and serves them on the network, making it easy to transfer books to a Kindle device.
+
+Features:
+- Convert and host ebooks in a single tap.
+- Supports sharing epubs directly to the app.
+- Save or share the converted .azw3 ebook, or download using the Kindle web browser.
+- Material You theming/
+
+Notes:
+- Only .epub files are supported for now.
+
+Uses Calibre under the hood: https://calibre-ebook.com/

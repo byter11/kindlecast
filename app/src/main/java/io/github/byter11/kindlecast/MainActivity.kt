@@ -315,6 +315,7 @@ fun ConsoleBox(
             SelectionContainer {
                 Text(
                     text = logs,
+                    color = Color.White,
                     fontFamily = FontFamily.Monospace,
                     fontSize = 12.sp,
                     modifier = Modifier.verticalScroll(scrollState)
