@@ -75,13 +75,19 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        var epubUri: Uri? = null
+        if (intent?.action == Intent.ACTION_SEND && intent.type == "application/epub+zip") {
+            epubUri = intent.getParcelableExtra<Uri>(Intent.EXTRA_STREAM)
+        }
+
         setContent {
             val colorScheme = if (isSystemInDarkTheme()) dynamicDarkColorScheme(this) else dynamicLightColorScheme(this)
             MaterialTheme(colorScheme = colorScheme) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    MainScreen()
+                    MainScreen(epubUri)
                 }
             }
         }
@@ -90,9 +96,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen(
+    epubUri: Uri? = null,
     converter: Converter = viewModel()
 ) {
-//    var showMenu by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val status by converter.status.collectAsState()
     val logs by converter.logs.collectAsState()
@@ -102,6 +108,12 @@ fun MainScreen(
 
     DisposableEffect(Unit) {
         onDispose { server?.stop() }
+    }
+
+    LaunchedEffect(epubUri) {
+        if (epubUri != null) {
+            converter.convertUriToAzw3(context, epubUri)
+        }
     }
 
     LaunchedEffect(status) {

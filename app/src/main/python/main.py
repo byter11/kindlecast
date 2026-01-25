@@ -7,7 +7,6 @@ class AndroidSafeBytesIO(io.BytesIO):
     def __len__(self):
         return self.getbuffer().nbytes
 
-io.BytesIO = AndroidSafeBytesIO
 
 def noop(*a, **k): pass
 
@@ -22,3 +21,6 @@ def setup():
 
     import calibre.utils.safe_atexit as safe_atexit
     safe_atexit._send_command = noop
+
+    io.BytesIO = AndroidSafeBytesIO
+
