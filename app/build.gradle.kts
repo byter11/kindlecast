@@ -20,20 +20,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
+            //noinspection ChromeOsAbiSupport
             abiFilters += listOf("arm64-v8a")
-        }
-        packaging {
-            jniLibs {
-                // This stops Android from trying to map the .so directly from the APK
-                // It forces an extraction to the filesystem, which avoids the alignment requirement
-                useLegacyPackaging = true
-            }
-        }
-
-        externalNativeBuild {
-            cmake {
-                arguments += "-DANDROID_STL=c++_shared"
-            }
         }
     }
 
