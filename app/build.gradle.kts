@@ -39,10 +39,10 @@ android {
                 install("lxml==5.3.0")
                 install("regex==2024.9.11")
                 install("pillow==11.0.0")
-                install("msgpack")
-                install("css-parser")
-                install("mechanize")
-                install("beautifulsoup4")
+                install("msgpack==1.1.2")
+                install("css-parser==1.0.10")
+                install("mechanize==0.4.10")
+                install("beautifulsoup4==4.14.3")
                 install("https://github.com/byter11/calibre-chaquopy/releases/download/1.0.0/calibre_chaquopy-1.0.0-cp313-cp313-android_21_arm64_v8a.whl")
             }
             pyc {
