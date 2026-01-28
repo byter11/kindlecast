@@ -8,6 +8,7 @@ plugins {
 android {
     namespace = "io.github.byter11.kindlecast"
     compileSdk = 36
+    ndkVersion = "27"
 
     defaultConfig {
         applicationId = "io.github.byter11.kindlecast"
@@ -26,6 +27,12 @@ android {
                 // This stops Android from trying to map the .so directly from the APK
                 // It forces an extraction to the filesystem, which avoids the alignment requirement
                 useLegacyPackaging = true
+            }
+        }
+
+        externalNativeBuild {
+            cmake {
+                arguments += "-DANDROID_STL=c++_shared"
             }
         }
     }
