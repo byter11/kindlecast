@@ -36,12 +36,13 @@ android {
 
             version = "3.13"
             pip {
-                install("lxml")
-                install("regex")
-                install("pillow")
+                install("lxml==5.3.0")
+                install("regex==2024.9.11")
+                install("pillow==11.0.0")
                 install("msgpack")
                 install("css-parser")
                 install("mechanize")
+                install("beautifulsoup4")
                 install("https://github.com/byter11/calibre-chaquopy/releases/download/1.0.0/calibre_chaquopy-1.0.0-cp313-cp313-android_21_arm64_v8a.whl")
             }
             pyc {

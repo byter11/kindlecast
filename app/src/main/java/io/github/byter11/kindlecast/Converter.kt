@@ -100,9 +100,11 @@ class Converter(application: Application) : AndroidViewModel(application) {
 
                     val azw3File = File(cacheDir, "${epubFile.nameWithoutExtension.take(128)}.azw3")
 
-                    // Call Python
-                    val container = py.getModule("calibre.ebooks.oeb.polish.container")
-                    container.callAttr("epub_to_azw3", epubFile.absolutePath, azw3File.absolutePath)
+                    // Call calibre ebook-convert cli entry point
+                    val cli = py.getModule("calibre.ebooks.conversion.cli")
+                    val args = listOf("ebook-convert", epubFile.absolutePath, azw3File.absolutePath)
+                    val pyArgs = py.builtins.callAttr("list", args.toTypedArray())
+                    cli.callAttr("main", pyArgs)
 
                     _status.value = ConversionStatus.Success(azw3File)
                     _logs.update { it + "Conversion successful" }

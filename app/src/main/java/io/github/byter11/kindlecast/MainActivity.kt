@@ -377,10 +377,10 @@ fun CreditLink(mainText: String, linkText: String, url: String) {
         ) {
             Text(
                 text = mainText,
-                fontSize = 14.sp,
+                fontSize = 12.sp,
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = Modifier.width(4.dp))
+            Spacer(modifier = Modifier.width(2.dp))
 
             Text(
                 text = buildAnnotatedString {
@@ -394,7 +394,8 @@ fun CreditLink(mainText: String, linkText: String, url: String) {
                     ) {
                         append(linkText)
                     }
-                }
+                },
+                fontSize = 12.sp,
             )
         }
     }
