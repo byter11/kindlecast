@@ -15,6 +15,7 @@ compose-bom = "2024.09.00"
 lifecycle-runtime-ktx = "2.8.4"
 material3 = "1.4.0"
 documentfile = "1.1.0"
+core-splashscreen = "1.0.1"
 
 
 [libraries]
@@ -40,6 +41,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 androidx-documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentfile" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
 
 
 
