@@ -66,7 +66,11 @@ Uses Calibre under the hood: https://calibre-ebook.com/
 
 ## License
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## Acknowledgements
 [Calibre](https://calibre-ebook.com)
+[Chaquopy](https://chaquo.com/chaquopy/)
+
+## Trademark Disclaimer
+"Kindle" is a registered trademark of Amazon.com, Inc. KindleCast is not affiliated with, endorsed by, or sponsored by Amazon. This app is an independent tool created for personal use and to facilitate device interoperability.
